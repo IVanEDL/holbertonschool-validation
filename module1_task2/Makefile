@@ -12,7 +12,5 @@ post:	##Create a new blog post whose filename and title come from the environmen
 	---" > content/posts/$(POST_NAME).md
 
 help:	##Displays this messages
-	@printf "\nusage : make <commands> \n\nthe following commands are available : \n\n"
-	@cat Makefile | awk '1;/help:/{exit}' | awk '/##/ { print; getline; print; }' | awk '{ getline x; print x; }1' | awk '{ key=$$0; getline; print key "\t\t\t\t " $$0;}'
-	@printf "\n"
+	@sed -e '/#\{2\}-/!d; s/\\$$//; s/:[^#\t]*/:/; s/#\{2\}- *//' $(MAKEFILE_LIST)
 
