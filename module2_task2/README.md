@@ -16,3 +16,4 @@ clean: Stop the application. Delete the binary awesome-api and the log file awes
 test: Tests it so it becames clear if it works
 lint: should fail when the linter catches and error:
 help: displays the help messages
+unit-tests: Tests the golang

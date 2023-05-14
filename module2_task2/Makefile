@@ -34,3 +34,5 @@ lint:	##- should fail when the linter catches and error:
 help:	##- Displays this messages
 	@sed -e '/#\{2\}-/!d; s/\\$$//; s/:[^#\t]*/:/; s/#\{2\}- *//' $(MAKEFILE_LIST)
 
+unit-tests:	  ##- Tests the golang
+	@go test -v -short -coverprofile=coverage-units.out
