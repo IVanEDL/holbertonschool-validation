@@ -1,5 +1,6 @@
 build:	##- Generate the website from the markdown and configuration files in the directory dist/
-	@go build
+	@hugo
+	@go build -o awesome-api
 
 run:	##- Run the application in background by executing the binary awesome-api
 	@./awesome-api >./awesome-api.log 2>&1 &
@@ -15,8 +16,13 @@ stop:	##- Stop the application with the command kill XXXXX where XXXXX is the Pr
 	@pkill awesome-api
 
 clean:	##- Stop the application. Delete the binary awesome-api and the log file awesome-api.log
-	@rm -rf dist
-	@rm -rf awesome-api.log awesome-api
+	@if [ -f ./awesome-api ]; then \
+		pkill awesome-api; \
+		rm ./awesome-api; \
+	fi
+	@if [ -f ./awesome-api.log ]; then \
+		rm ./awesome-api.log; \
+	fi
 
 test:	##- Tests it so it becames clear if it works
 	@curl http://localhost:9999
