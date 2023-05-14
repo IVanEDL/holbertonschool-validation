@@ -23,6 +23,9 @@ test:	##- Tests it so it becames clear if it works
 	@curl http://localhost:9999
 	@curl http://localhost:9999/health
 
+lint:	##- should fail when the linter catches and error:
+	@golangci-lint run
+
 help:	##- Displays this messages
 	@sed -e '/#\{2\}-/!d; s/\\$$//; s/:[^#\t]*/:/; s/#\{2\}- *//' $(MAKEFILE_LIST)
 

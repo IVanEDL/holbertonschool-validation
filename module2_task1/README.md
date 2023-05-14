@@ -14,4 +14,5 @@ run: Run the application in background by executing the binary awesome-api
 stop: Stop the application with the command kill XXXXX where XXXXX is the Process ID of the application.
 clean: Stop the application. Delete the binary awesome-api and the log file awesome-api.log
 test: Tests it so it becames clear if it works
+lint: should fail when the linter catches and error:
 help: displays the help messages
