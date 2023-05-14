@@ -16,7 +16,7 @@ stop:	##- Stop the application with the command kill XXXXX where XXXXX is the Pr
 	@pkill awesome-api
 
 clean:	##- Stop the application. Delete the binary awesome-api and the log file awesome-api.log
-	@pkill awesome-api
+	@rm -rf dist
 	@rm -rf awesome-api.log awesome-api
 
 test:	##- Tests it so it becames clear if it works
