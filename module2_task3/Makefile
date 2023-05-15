@@ -16,13 +16,8 @@ stop:	##- Stop the application with the command kill XXXXX where XXXXX is the Pr
 	@pkill awesome-api
 
 clean:	##- Stop the application. Delete the binary awesome-api and the log file awesome-api.log
-	@if [ -f ./awesome-api ]; then \
-		pkill awesome-api; \
-		rm ./awesome-api; \
-	fi
-	@if [ -f ./awesome-api.log ]; then \
-		rm ./awesome-api.log; \
-	fi
+	@rm -rf dist
+	@rm -f awesome-api awesome-api.log coverage-units.out coverage-integrations.out
 
 test:	##- Tests it so it becames clear if it works
 	@curl http://localhost:9999
@@ -36,3 +31,6 @@ help:	##- Displays this messages
 
 unit-tests:	  ##- Tests the golang
 	@go test -v -short -coverprofile=coverage-units.out
+
+integration-tests:	##- Tests the golang integration
+	@go test -v -coverprofile=coverage-integrations.out
