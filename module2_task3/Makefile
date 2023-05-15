@@ -17,11 +17,12 @@ stop:	##- Stop the application with the command kill XXXXX where XXXXX is the Pr
 
 clean:	##- Stop the application. Delete the binary awesome-api and the log file awesome-api.log
 	@rm -rf dist
-	@rm -f awesome-api awesome-api.log coverage-units.out coverage-integrations.out
+	@rm -f awesome-api awesome-api.log
+	@rm -f coverage-units.out coverage-integrations.out
 
 test:	##- Tests it so it becames clear if it works
-	@curl http://localhost:9999
-	@curl http://localhost:9999/health
+	@make unit-tests
+	@make integration-tests
 
 lint:	##- should fail when the linter catches and error:
 	@golangci-lint run
