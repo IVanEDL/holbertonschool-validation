@@ -1,4 +1,4 @@
-build:	##- Generate the website from the markdown and configuration files in the directory dist/
+build: lint	##- Generate the website from the markdown and configuration files in the directory dist/
 	@hugo
 	@go build -o awesome-api
 
@@ -29,7 +29,7 @@ test:	##- Tests it so it becames clear if it works
 	@curl http://localhost:9999/health
 
 lint:	##- should fail when the linter catches and error:
-	@golangci-lint run
+	@${GOPATH}/bin/golangci-lint
 
 help:	##- Displays this messages
 	@sed -e '/#\{2\}-/!d; s/\\$$//; s/:[^#\t]*/:/; s/#\{2\}- *//' $(MAKEFILE_LIST)
