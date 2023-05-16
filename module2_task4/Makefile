@@ -25,7 +25,7 @@ test:	##- Tests it so it becames clear if it works
 	@make integration-tests
 
 lint:	##- should fail when the linter catches and error:
-	@${GOPATH}/bin/golangci-lint
+	@${GOPATH}/bin/golangci-lint run
 
 help:	##- Displays this messages
 	@sed -e '/#\{2\}-/!d; s/\\$$//; s/:[^#\t]*/:/; s/#\{2\}- *//' $(MAKEFILE_LIST)
